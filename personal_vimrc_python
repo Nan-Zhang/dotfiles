@@ -1,0 +1,98 @@
+" ========== Vundle Start ==========
+set nocompatible                "Use Vim settings, rather than Vi settings
+                                "Be IMproved
+filetype off                    "required!
+
+" I use Vundle https://github.com/gmarik/vundle as my
+" preferred plugin manager....
+"
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+"interface
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'bling/vim-airline'
+"Plugin 'terryma/vim-multiple-cursors'
+
+"python
+"Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" ==========  Vundle End  ==========
+
+" ========== vim-colors-solarized Start ==========
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+colorscheme solarized
+"========== vim-colors-solarized End ==========
+
+set backspace=indent,eol,start  "allow backspacing over everything in insert mode
+set history=500                  "keep 50 lines of command line history
+set ruler                       "show the cursor position all the time
+set showcmd                     "display incomplete commands
+set incsearch                   "do incremental searching
+set nu                          "show line numbers
+set hlsearch                    "highlight search terms
+set ic                          "ignore Case during searches
+
+" show tab and trailing spaces
+set list
+set listchars=tab:↦\ ,trail:▫
+
+" tab setting
+set tabstop=4
+set expandtab
+set smarttab
+
+" indent setting
+set shiftwidth=4
+set autoindent
+set cindent
+set smartindent
+
+set wildmode=list:longest,full  "a list of completions will be shown.
+
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set cmdheight=1                 "The commandbar height
+set showmatch                   "Show matching bracets when text indicator is over them
+set nobackup                    " do not keep backup files, it's 70's style cluttering
+set noswapfile                  " do not write annoying intermediate swap files
+
+" ========== vim-airline Start ==========
+set laststatus=2                "you can see the current mode, file name, file status, ruler, etc.
+"set noshowmode                  " Get rid of the default mode indicator
+"let g:airline_powerline_fonts = 1   " Use powerline symbols
+"let g:arline_theme = 'light'    " Self explanatory
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '»'
+"let g:airline_right_sep = '«'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+" ========== vim-airline End ==========
+
+set ttimeoutlen=50              "Solves: there is a pause when leaving insert mode
+set splitbelow                  " Horizontal splits open below current file
+set splitright                  " Vertical splits open to the right of the current file
+
+" ========== jedi-vim Start ==========
+let g:jedi#popup_on_dot = 1
+let g:jedi#completions_command = "<C-N>"
+" ========== vim-airline Start ==========
+
+"========== mapping-keys Start ==========
+inoremap jj <ESC>
+nnoremap <Space> <C-f>
+"========== mapping-keys End ==========
