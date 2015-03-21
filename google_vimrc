@@ -1,0 +1,82 @@
+"========== Google-vim Config start ==========
+set nocompatible
+source /usr/share/vim/google/google.vim
+"source /usr/share/vim/google/runtime/grok.vim
+Glug youcompleteme-google
+Glug outline-window
+Glug relatedfiles
+Glug refactorer
+Glug blazedeps
+Glug grok
+Glug blaze plugin[mappings]='<leader>b'
+Glug mru
+Glug corpweb
+filetype plugin indent on
+syntax on
+"=========== Google-vim Config end ===========
+
+
+set ttimeoutlen=50              "Solves: there is a pause when leaving insert mode
+set backspace=indent,eol,start  "allow backspacing over everything in insert mode
+set history=500                 "keep 50 lines of command line history
+set ruler                       "show the cursor position all the time
+set showcmd                     "display incomplete commands
+set incsearch                   "do incremental searching
+set nu                          "show line numbers
+set hlsearch                    "highlight search terms
+set ic                          "ignore Case during searches
+set splitbelow                  " Horizontal splits open below current file
+set splitright                  " Vertical splits open to the right of the current file
+
+" show tab and trailing spaces
+set list
+set listchars=tab:↦\ ,trail:▫
+
+"to make all yanking/deleting operations automatically copy to the system clipboard
+set clipboard=unnamed
+set clipboard=unnamedplus
+
+"========== mapping-keys start ========================
+inoremap jj <ESC>
+nnoremap <Space> <C-f>
+
+" can visually select and copy to system clipboard
+vnoremap <C-c> "*y
+nnoremap <C-p> "*p
+"========== mapping-keys end ==========================
+
+
+"========== mapping-keys Clang-Format start ===========
+noremap <C-K> :ClangFormat<CR>
+inoremap <C-K> <C-O>:ClangFormat<CR>
+"========== mapping-keys Clang-Format end =============
+
+
+"========== mapping-keys OutlineWindow ================
+nnoremap ,g :GoogleOutlineWindow<CR>
+"========== mapping-keys OutlineWindow end ============
+
+
+"========== mapping-keys YcmCompleter start ===========
+nnoremap <leader>dec :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>def :YcmCompleter GoToDefinition<CR>
+"========== mapping-keys YcmCompleter end =============
+
+let g:blazevim_notify_after_blaze = 1 "Use system GUI notifications to inform the user when blaze build is done
+
+"========== mapping-keys mru start ====================
+nnoremap ,mr :MruWindow<CR>
+nnoremap ,mrd :MruWindowDirectory<CR>
+"========== mapping-keys mru end ======================
+
+let g:grok_show_result_list=1 " grok reference list shows up
+
+
+map <C-Left> <Esc>:tabprev<CR>
+map <C-Right> <Esc>:tabnext<CR>
+map <C-n> <Esc>:tabnew
+
+"========== corpweb-keys mapping start ================
+noremap <unique> <leader>cs :CorpWebCs<Space>
+noremap <unique> <leader>cf :CorpWebCsFile<CR>
+"========== corpweb-keys mapping end   ================
